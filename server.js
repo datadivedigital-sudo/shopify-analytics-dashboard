@@ -2,7 +2,6 @@
  * Shopify Analytics Dashboard - Main Server File
  * Complete Implementation
  */
-
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
