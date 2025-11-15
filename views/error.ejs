@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error - <%= title || 'Something Went Wrong' %></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-light">
+
+  <div class="container">
+    <div class="row justify-content-center" style="margin-top: 100px;">
+      <div class="col-md-6">
+
+        <!-- Error Icon -->
+        <div class="text-center mb-4">
+          <h1 class="display-1">⚠️</h1>
+          <h2>Oops! Something Went Wrong</h2>
+        </div>
+
+        <!-- Error Card -->
+        <div class="card shadow">
+          <div class="card-body p-4">
+
+            <h4 class="card-title text-danger mb-3">Error Details</h4>
+
+            <div class="alert alert-danger" role="alert">
+              <%= error || 'An unexpected error occurred. Please try again.' %>
+            </div>
+
+            <div class="mt-4">
+              <h5>What you can do:</h5>
+              <ul>
+                <li>Go back and try again</li>
+                <li>Check your internet connection</li>
+                <li>Make sure your shop domain is correct</li>
+                <li>Contact support if the problem persists</li>
+              </ul>
+            </div>
+
+            <div class="d-grid gap-2 mt-4">
+              <a href="/" class="btn btn-primary">Return to Home</a>
+              <button onclick="history.back()" class="btn btn-outline-secondary">Go Back</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Debug Info (Development Only) -->
+        <% if (process.env.NODE_ENV !== 'production') { %>
+          <div class="card mt-3 bg-light">
+            <div class="card-body">
+              <small class="text-muted">
+                <strong>Debug Info (Development Only):</strong><br>
+                This detailed error information is only shown in development mode.
+                <br>
+                Error: <%= error %>
+              </small>
+            </div>
+          </div>
+        <% } %>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
