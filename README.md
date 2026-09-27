@@ -1,3 +1,4 @@
+
 # Shopify Product Analytics Dashboard
 
 A complete externally-hosted Shopify app that provides comprehensive product analytics, inventory tracking, and real-time updates via webhooks.
