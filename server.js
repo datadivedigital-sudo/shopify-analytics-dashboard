@@ -9,6 +9,15 @@ require('dotenv').config();
 
 const app = express();
 app.set('trust proxy', 1);
+// Set CSP Header to allow embedding inside Shopify Admin iframe
+app.use((req, res, next) => {
+  const shop = req.query.shop || 'penny-york-wigs.myshopify.com';
+  res.setHeader(
+    'Content-Security-Policy',
+    `frame-ancestors https://${shop} https://admin.shopify.com https://*.myshopify.com;`
+  );
+  next();
+});
 
 // ============================================================================
 // MIDDLEWARE CONFIGURATION
