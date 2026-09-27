@@ -30,9 +30,9 @@ const pool = new Pool({
    * - Production (Render, Railway, AWS RDS): SSL required
    * - rejectUnauthorized: false allows self-signed certificates
    */
-  ssl: process.env.NODE_ENV === 'production'
-    ? { rejectUnauthorized: false }
-    : false,
+  ssl: {
+  rejectUnauthorized: false
+},
 
   /**
    * Connection Pool Settings
